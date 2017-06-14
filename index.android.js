@@ -6,6 +6,7 @@
 
 import React, { Component } from 'react';
 import Login from './assets/components/common/loginButton';
+import Autocomplete from './assets/components/common/autocomplete';
 import Header from './assets/components/partials/header';
 import MainContent from './assets/components/partials/main';
 import MapView from 'react-native-maps';
@@ -29,7 +30,7 @@ export default class MyApp extends Component {
     super();
     this.state = {
       user: {},
-      ready: false,
+      ready: true,
       logged: false
     };
   }
@@ -85,6 +86,7 @@ export default class MyApp extends Component {
     if (this.state.ready) {
       return (
         <View style={styles.container}>
+          <Autocomplete />
           <Header user={this.state.user} facebookHandle={this.facebookHandle} logged={this.state.logged} />
           { this.state.logged && 
             <MainContent />
